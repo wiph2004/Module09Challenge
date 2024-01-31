@@ -78,12 +78,19 @@ const generateHTML = (userInput) => {
     Made by: ${username}
     Contact: ${email}
     
+    ## Table of Contents
+
+    [Description](link)
+    [Installation](link)
+    [Usage](link)
+    [Credits](link)
+    [License](link)
+    [Testing](link)
+
+
     ## Description
     
-    ${description}
-    
-    ## Table of Contents
-    
+    ${description}    
     
     
     ## Installation 
