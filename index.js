@@ -1,6 +1,13 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
+const generateMarkdown = require("./generateMarkdown");
 
+const licenseChoices = [
+    'MIT',
+    'GNU',
+    'Creative Commons Zero',
+    'Apache 2.0'
+    ];
 // TODO: Create an array of questions for user input
 inquirer
     .prompt( [
@@ -37,11 +44,7 @@ inquirer
 {
     type: 'list',
     message: 'Please choose a license',
-    choices: [
-        'MIT',
-        'None',
-        'Other',
-        ],
+    choices: licenseChoices,
     name: 'license',
 },
 {
@@ -56,10 +59,11 @@ inquirer
 },
 ])
 .then((answers) => {
-    const fileContents = generateHTML(answers);
-    const { name } = answers;
+    const fileContents = generateMarkdown(answers);
+    const { title } = answers;
+    const fileName = title.toLowerCase().replace(" ", "-");
     
-    fs.writeFile ('README.md', fileContents, (err) => {
+    fs.writeFile (`${fileName}.md`, fileContents, (err) => {
     if (err) {
         console.error('Error writing to file: '. err);
     }
@@ -70,51 +74,6 @@ inquirer
 
 });
 
-const generateHTML = (userInput) => {
-    const  { title, description, installation, usage, contribution, testing, license, username, email } = userInput;
-    const output = `
-    # ${title}
-
-    Made by: ${username}
-    Contact: ${email}
-    
-    ## Table of Contents
-
-    [Description](link)
-    [Installation](link)
-    [Usage](link)
-    [Credits](link)
-    [License](link)
-    [Testing](link)
-
-
-    ## Description
-    
-    ${description}    
-    
-    
-    ## Installation 
-        ${installation}
-        
-    ## Usage 
-    
-        ${usage}
-        
-    ## Credits 
-        ${contribution}
-        
-    ## License 
-        ${license}
-        
-    ## Testing 
-        ${testing}`;
-
-return output;
-
-}
-
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
 function init() {}
