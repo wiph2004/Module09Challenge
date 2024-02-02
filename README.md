@@ -4,7 +4,8 @@
 
 Run a javascript file to generate a README
 
-#Acceptance Criteria
+# Acceptance Criteria
+
 GIVEN a command-line application that accepts user input
 
 WHEN I am prompted for information about my application repository
