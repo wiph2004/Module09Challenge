@@ -1,5 +1,9 @@
 # Module 9 Challenge: Create a README from javascript
 
+# How to
+
+Run a javascript file to generate a README
+
 #Acceptance Criteria
 GIVEN a command-line application that accepts user input
 
@@ -39,3 +43,6 @@ THEN I am taken to the corresponding section of the README
 
 # Location
 https://www.loom.com/share/e8a0145696a7428cbc71c131a20cfe4c?sid=e82fb6b5-3176-4d78-8b85-1878dab30a0d
+
+# Credits
+John Lynch - professor
